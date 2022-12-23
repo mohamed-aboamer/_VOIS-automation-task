@@ -4,6 +4,7 @@ import Base.BaseTest;
 import Pages.amazon.*;
 import assertion.Validation;
 import org.testng.annotations.Test;
+import utilities.dataHelpers.ExcelReader;
 
 public class Task_1 extends BaseTest {
 
@@ -12,15 +13,18 @@ public class Task_1 extends BaseTest {
 
     private static ProductPage productPage;
     private static CartPage cartPage;
-
+    private static String filePath="resources/testdata/testData.xlsx";
+    private static  String sheetName="task1";
     private static TodayDealsPage todayDealsPage;
     @Test
     public void Scenario_1 () {
+
         amazonHomePage = new AmazonHomePage(getDriver());
+        ExcelReader excelReader=new ExcelReader(filePath,sheetName);
         searchPage = amazonHomePage
                 .loadPage()
                 .clickOnSearch()
-                .searchFor("car accessories")
+                .searchFor((String) excelReader.getCellData(1,0))
                 .submit();
         productPage = searchPage.clickOnLink(0);
         cartPage =  productPage.addToCart();

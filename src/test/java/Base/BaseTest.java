@@ -2,7 +2,7 @@ package Base;
 
 import com.assertthat.selenium_shutterbug.core.Shutterbug;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import listeners.reporters.ExtentReporterNG;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -14,7 +14,7 @@ import utilities.dataHelpers.ConfigReader;
 
 import java.time.Duration;
 
-@Listeners({ExtentReporterNG.class})
+
 public class BaseTest  {
     public static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
     @BeforeMethod

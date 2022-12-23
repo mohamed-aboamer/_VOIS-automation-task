@@ -92,7 +92,8 @@ public class ExcelReader {
     }
 
     public static void main(String[] args) {
-
+        ExcelReader excelReader=new ExcelReader("resources/testdata/testData.xlsx","task1");
+        System.out.println(excelReader.getCellData(2,1));
     }
 
 
